@@ -1,5 +1,6 @@
 package com.example.stageinnov.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,6 +21,7 @@ public class Projet {
     private Date dateCreation;
     private String description;
     @OneToMany
+    @JsonIgnore
     private List<Image> images;
     @ManyToOne
     @JoinColumn(name = "gestionnaire_id")

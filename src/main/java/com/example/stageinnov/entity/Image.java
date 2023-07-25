@@ -13,9 +13,10 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String nom;
     private String photo;
     private String description;
-    private String Format;
+    private String format;
     @ManyToOne
     private Projet projet;
 
