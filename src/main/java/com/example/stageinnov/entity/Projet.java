@@ -26,4 +26,9 @@ public class Projet {
     private Gestionnaire gestionnaire;
     @OneToMany
     private List<Result> resultList;
+
+    @PrePersist
+    public void prePersist() {
+        dateCreation = new Date();
+    }
 }

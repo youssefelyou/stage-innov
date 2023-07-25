@@ -22,6 +22,7 @@ public class ProjetService {
     }
 
     public Projet save(Projet projet) {
+
         return projetRepository.save(projet);
     }
 
@@ -33,7 +34,6 @@ public class ProjetService {
         Projet projet=projetRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ville not found with id " + id));
         projet.setName(projetInfo.getName());
         projet.setDescription(projetInfo.getDescription());
-        projet.setDateCreation(projetInfo.getDateCreation());
         projetRepository.save(projet);
     }
 
