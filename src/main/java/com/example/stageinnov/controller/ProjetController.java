@@ -14,6 +14,8 @@ import java.util.Optional;
 @CrossOrigin
 public class ProjetController {
 
+
+
     @Autowired
     private ProjetService projetService;
 
@@ -27,6 +29,10 @@ public class ProjetController {
         return projetService.save(projet);
     }
 
+    @PutMapping("/{id}")
+    public void update(@PathVariable Integer id,@RequestBody Projet projetInfo) {
+        projetService.update(id, projetInfo);
+    }
     @GetMapping("/{id}")
     public Optional<Projet> findById(@PathVariable Integer id) {
         return projetService.findById(id);
