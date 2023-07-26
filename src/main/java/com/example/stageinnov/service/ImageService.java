@@ -1,9 +1,11 @@
 package com.example.stageinnov.service;
 
 import com.example.stageinnov.entity.Image;
+import com.example.stageinnov.entity.Projet;
 import com.example.stageinnov.repository.ImageRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +24,14 @@ public class ImageService {
         return imageRepository.save(image);
     }
 
+    public void update(Integer id, Image imageInfo) {
+        Image image=imageRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ville not found with id " + id));
+        image.setDescription(imageInfo.getDescription());
+        image.setName(imageInfo.getName());
+        image.setPhoto(imageInfo.getPhoto());
+        image.setFormat(imageInfo.getFormat());
+        imageRepository.save(image);
+    }
     public Optional<Image> findById(Integer id) {
         return imageRepository.findById(id);
     }

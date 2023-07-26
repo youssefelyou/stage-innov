@@ -13,6 +13,7 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String name;
     private String photo;
     private String description;
     private String Format;
