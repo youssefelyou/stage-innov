@@ -30,6 +30,7 @@ public class ImageService {
         image.setName(imageInfo.getName());
         image.setPhoto(imageInfo.getPhoto());
         image.setFormat(imageInfo.getFormat());
+        image.setProjet(imageInfo.getProjet());
         imageRepository.save(image);
     }
     public Optional<Image> findById(Integer id) {
