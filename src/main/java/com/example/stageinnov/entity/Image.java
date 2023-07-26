@@ -14,6 +14,7 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
+    @Column(length =5000000)
     private String photo;
     private String description;
     private String format;
