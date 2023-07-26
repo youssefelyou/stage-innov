@@ -13,6 +13,9 @@ import java.util.Optional;
 @RequestMapping("/api/image")
 @CrossOrigin
 public class ImageController {
+
+
+
     @Autowired
     private ImageService imageService;
 
@@ -26,6 +29,10 @@ public class ImageController {
         return imageService.save(image);
     }
 
+    @PutMapping("/{id}")
+    public void update(@PathVariable Integer id,@RequestBody Image imageInfo) {
+        imageService.update(id, imageInfo);
+    }
     @GetMapping("/{id}")
     public Optional<Image> findById(@PathVariable Integer id) {
         return imageService.findById(id);

@@ -13,11 +13,10 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nom;
-    @Column(length =5000000)
+    private String name;
     private String photo;
     private String description;
-    private String format;
+    private String Format;
     @ManyToOne
     private Projet projet;
 
