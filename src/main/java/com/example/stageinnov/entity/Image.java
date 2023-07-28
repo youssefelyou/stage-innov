@@ -21,7 +21,6 @@ public class Image {
     private String Format;
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties({ "images", "resultList"})
-
     private Projet projet;
 
 
