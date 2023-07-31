@@ -8,11 +8,14 @@ import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ProjetService {
+
+
 
     @Autowired
     private ProjetRepository projetRepository;
@@ -37,6 +40,9 @@ public class ProjetService {
         projetRepository.save(projet);
     }
 
+    public List<Projet> findByDateCreationBetween(Date dateStart, Date dateEnd) {
+        return projetRepository.findByDateCreationBetween(dateStart, dateEnd);
+    }
     @Transactional
     public void deleteById(Integer id) {
         projetRepository.deleteById(id);
