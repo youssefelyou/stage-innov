@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
-@Data
+//@Data
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,6 +25,9 @@ public class Image {
     @JsonIgnoreProperties({ "images", "resultList"})
     private Projet projet;
 
+    /**  **/
+    @OneToMany(mappedBy = "image", fetch = FetchType.LAZY)
+    private List<Comment> commentList;
 
 }
 
