@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Data
+//@Data
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,9 +18,19 @@ public class Comment {
     private int id;
     private String note;
     @Temporal(TemporalType.DATE)
-    private Date date;
+    private Date commentDate;
     @ManyToOne
     private Client client;
     @OneToMany
     private List<Result> resultList;
+
+    /**  **/
+    @ManyToOne
+    private Image image;
+
+    @PrePersist
+    public void prePersist() {
+        commentDate = new Date();
+    }
+
 }
