@@ -1,5 +1,6 @@
 package com.example.stageinnov.service;
 
+import com.example.stageinnov.entity.Role;
 import com.example.stageinnov.entity.User;
 import com.example.stageinnov.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+
 
 
 
@@ -40,6 +42,9 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public List<User> findByRole(Role role) {
+        return userRepository.findByRole(role);
+    }
 
 
 }

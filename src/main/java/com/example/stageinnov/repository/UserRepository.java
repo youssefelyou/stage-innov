@@ -1,5 +1,6 @@
 package com.example.stageinnov.repository;
 
+import com.example.stageinnov.entity.Role;
 import com.example.stageinnov.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -10,5 +11,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     User findUserByUsername(String username);
     Optional<User> findByEmail(String email);
     List<User> findAll();
+
+    List<User> findByRole(Role role);
 }
 
