@@ -1,11 +1,12 @@
 package com.example.stageinnov.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Data
+//@Data
 @Getter
 @Setter
 @NoArgsConstructor
@@ -22,9 +23,11 @@ public class Projet {
     @OneToMany(mappedBy = "projet", fetch = FetchType.LAZY)
     private List<Image> images;
     @ManyToOne
-    @JoinColumn(name = "gestionnaire_id")
-    private Gestionnaire gestionnaire;
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @OneToMany
+    //@JsonIgnore
     private List<Result> resultList;
 
     @PrePersist

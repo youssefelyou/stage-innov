@@ -1,5 +1,7 @@
 package com.example.stageinnov.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Data
+//@Data
 @Getter
 @Setter
 @Builder
@@ -32,6 +34,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties({ "user"})
+    private List<Projet> projetList;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

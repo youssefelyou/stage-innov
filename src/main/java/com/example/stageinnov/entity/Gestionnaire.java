@@ -9,7 +9,9 @@ import java.util.List;
 @Entity
 public class Gestionnaire extends User {
 
-    @OneToMany(mappedBy = "gestionnaire")
+   /* @OneToMany(mappedBy = "gestionnaire")
     @JsonIgnore
     private List<Projet> projetList;
+    */
+
 }

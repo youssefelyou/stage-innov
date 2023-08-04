@@ -2,6 +2,7 @@ package com.example.stageinnov.auth;
 
 
 import com.example.stageinnov.entity.Role;
+import jakarta.persistence.Column;
 import lombok.*;
 
 @Data
@@ -15,4 +16,6 @@ public class RegisterRequest {
     private String email;
     private String password;
     private Role role;
+    private String username;
+    private String tel;
 }
