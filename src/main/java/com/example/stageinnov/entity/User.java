@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-//@Data
+@Data
 @Getter
 @Setter
 @Builder
@@ -26,11 +26,11 @@ public class User implements UserDetails {
     private int id;
     private String username;
     private String password;
+
     private String tel;
     private String email;
     private String firstName;
     private String lastName;
-
     @Enumerated(EnumType.STRING)
     private Role role;
 
