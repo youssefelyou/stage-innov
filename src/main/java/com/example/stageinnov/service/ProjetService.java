@@ -34,7 +34,7 @@ public class ProjetService {
     }
 
     public void update(Integer id,Projet projetInfo) {
-        Projet projet=projetRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ville not found with id " + id));
+        Projet projet=projetRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("projet not found with id " + id));
         projet.setName(projetInfo.getName());
         projet.setDescription(projetInfo.getDescription());
         projetRepository.save(projet);

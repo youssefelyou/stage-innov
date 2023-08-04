@@ -25,7 +25,7 @@ public class ImageService {
     }
 
     public void update(Integer id, Image imageInfo) {
-        Image image=imageRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ville not found with id " + id));
+        Image image=imageRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("image not found with id " + id));
         image.setDescription(imageInfo.getDescription());
         image.setName(imageInfo.getName());
         image.setPhoto(imageInfo.getPhoto());
