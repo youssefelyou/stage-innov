@@ -20,7 +20,7 @@ public class Comment {
     @Temporal(TemporalType.DATE)
     private Date commentDate;
     @ManyToOne
-    private Client client;
+    private User user;
     @OneToMany
     private List<Result> resultList;
 

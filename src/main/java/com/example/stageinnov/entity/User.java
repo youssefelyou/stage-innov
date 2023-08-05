@@ -18,7 +18,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.JOINED)
 public class User implements UserDetails {
 
     @Id

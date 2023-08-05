@@ -22,7 +22,7 @@ public class Image {
     private String description;
     private String Format;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnoreProperties({ "images", "resultList"})
+    @JsonIgnoreProperties({ "images", "resultList","user"})
     private Projet projet;
 
     /**  **/
