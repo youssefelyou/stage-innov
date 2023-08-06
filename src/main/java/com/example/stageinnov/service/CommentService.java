@@ -13,7 +13,9 @@ import java.util.Optional;
 
 @Service
 public class CommentService {
-    
+
+
+
     @Autowired
     private CommentRepository commentRepository;
 
@@ -39,5 +41,8 @@ public class CommentService {
         comment.setNote(commentInfo.getNote());
         comment.setRate(commentInfo.getRate());
         commentRepository.save(comment);
+    }
+    public List<Comment> findCommentsByProjetId(int id) {
+        return commentRepository.findCommentsByProjetId(id);
     }
 }

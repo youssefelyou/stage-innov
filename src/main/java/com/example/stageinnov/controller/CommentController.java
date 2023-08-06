@@ -44,4 +44,9 @@ public class CommentController {
     public void update(@PathVariable Integer id,@RequestBody Comment commentInfo) {
         commentService.update(id, commentInfo);
     }
+    @GetMapping("/projet/{id}")
+    public List<Comment> findCommentsByProjetId(@PathVariable int id) {
+        return commentService.findCommentsByProjetId(id);
+    }
+
 }
