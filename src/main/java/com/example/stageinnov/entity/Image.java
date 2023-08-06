@@ -22,13 +22,13 @@ public class Image {
     private String description;
     private String Format;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnoreProperties({ "images", "resultList","user"})
+    @JsonIgnoreProperties({ "images", "resultList","user","commentList"})
     private Projet projet;
 
-    /**  **/
+    /*
     @OneToMany(mappedBy = "image", fetch = FetchType.LAZY)
     private List<Comment> commentList;
-
+*/
 }
 
 

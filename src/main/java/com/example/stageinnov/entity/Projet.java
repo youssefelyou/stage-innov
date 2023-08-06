@@ -19,15 +19,20 @@ public class Projet {
     private Date dateCreation;
     private String description;
 
-    @OneToMany(mappedBy = "projet", fetch = FetchType.LAZY)
-    private List<Image> images;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
+
+    @OneToMany(mappedBy = "projet", fetch = FetchType.LAZY)
+    private List<Image> images;
+
     @OneToMany
     //@JsonIgnore
     private List<Result> resultList;
+
+    @OneToMany(mappedBy = "projet", fetch = FetchType.LAZY)
+    private List<Comment> commentList;
 
     @PrePersist
     public void prePersist() {

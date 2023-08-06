@@ -11,7 +11,10 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/comment")
+@CrossOrigin
 public class CommentController {
+
+
 
     @Autowired
     private CommentService commentService;
@@ -35,5 +38,10 @@ public class CommentController {
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Integer id) {
         commentService.deleteById(id);
+    }
+
+    @PutMapping("/{id}")
+    public void update(@PathVariable Integer id,@RequestBody Comment commentInfo) {
+        commentService.update(id, commentInfo);
     }
 }
