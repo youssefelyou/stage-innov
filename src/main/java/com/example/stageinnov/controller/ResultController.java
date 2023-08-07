@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/result")
+@CrossOrigin
 public class ResultController {
 
     @Autowired
