@@ -19,6 +19,7 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String note;
+    private String status;
     private int rate;
     private Date commentDate;
 
@@ -31,8 +32,7 @@ public class Comment {
 
     @OneToMany
     private List<Result> resultList;
-   // @ManyToOne
-   // private Image image;
+
 
 
     @PrePersist

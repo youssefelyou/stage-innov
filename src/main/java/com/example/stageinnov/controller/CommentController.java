@@ -49,4 +49,14 @@ public class CommentController {
         return commentService.findCommentsByProjetId(id);
     }
 
+    @PutMapping("/read/{id}")
+    public void markasRead(@PathVariable Integer id,@RequestBody Comment commentRead) {
+        commentService.markasRead(id, commentRead);
+    }
+
+    @GetMapping("/status/{status}")
+    public List<Comment> findCommentsByStatus(@PathVariable String status) {
+        return commentService.findCommentsByStatus(status);
+    }
+
 }

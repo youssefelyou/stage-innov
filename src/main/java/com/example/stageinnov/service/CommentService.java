@@ -16,6 +16,7 @@ public class CommentService {
 
 
 
+
     @Autowired
     private CommentRepository commentRepository;
 
@@ -40,9 +41,20 @@ public class CommentService {
         Comment comment=commentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("comment not found with id " + id));
         comment.setNote(commentInfo.getNote());
         comment.setRate(commentInfo.getRate());
+        comment.setStatus(commentInfo.getStatus());
         commentRepository.save(comment);
+    }
+
+    public void markasRead(Integer id,Comment commentRead){
+        Comment commentRe=commentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("comment not found with id " + id));
+        commentRe.setStatus(commentRead.getStatus());
+        commentRepository.save(commentRe);
     }
     public List<Comment> findCommentsByProjetId(int id) {
         return commentRepository.findCommentsByProjetId(id);
+    }
+
+    public List<Comment> findCommentsByStatus(String status) {
+        return commentRepository.findCommentsByStatus(status);
     }
 }
