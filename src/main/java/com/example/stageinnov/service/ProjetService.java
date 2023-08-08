@@ -37,6 +37,8 @@ public class ProjetService {
         Projet projet=projetRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("projet not found with id " + id));
         projet.setName(projetInfo.getName());
         projet.setDescription(projetInfo.getDescription());
+        projet.setResult(projetInfo.getResult());
+        projet.setUser(projetInfo.getUser());
         projetRepository.save(projet);
     }
 

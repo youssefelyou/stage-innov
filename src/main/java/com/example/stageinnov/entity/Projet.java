@@ -27,9 +27,8 @@ public class Projet {
     @OneToMany(mappedBy = "projet", fetch = FetchType.LAZY)
     private List<Image> images;
 
-    @OneToMany
-    //@JsonIgnore
-    private List<Result> resultList;
+    @ManyToOne
+    private Result result;
 
     @OneToMany(mappedBy = "projet", fetch = FetchType.LAZY)
     private List<Comment> commentList;

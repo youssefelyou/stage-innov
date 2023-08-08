@@ -1,5 +1,6 @@
 package com.example.stageinnov.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,8 +20,14 @@ public class Result {
     private String type;
     private String file;
     private String description;
+    /*
     @ManyToOne
     private Projet projet;
+    */
     @OneToMany
     private List<Field> fieldList;
+
+    @OneToMany(mappedBy = "result", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Projet> projetList;
 }
