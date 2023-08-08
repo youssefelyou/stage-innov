@@ -20,10 +20,12 @@ public class Result {
     private String type;
     private String file;
     private String description;
+
     /*
     @ManyToOne
     private Projet projet;
     */
+
     @OneToMany
     private List<Field> fieldList;
 

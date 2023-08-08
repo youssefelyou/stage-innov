@@ -16,6 +16,7 @@ import java.util.Optional;
 @CrossOrigin
 public class FieldController {
 
+
     @Autowired
     private FieldService fieldService;
 
@@ -39,4 +40,10 @@ public class FieldController {
     public void deleteById(@PathVariable Integer id) {
         fieldService.deleteById(id);
     }
+
+    @GetMapping("/result/{id}")
+    public List<Field> findFieldsByResultId(@PathVariable int id) {
+        return fieldService.findFieldsByResultId(id);
+    }
+
 }

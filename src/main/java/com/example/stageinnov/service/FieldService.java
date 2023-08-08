@@ -12,7 +12,9 @@ import java.util.Optional;
 
 @Service
 public class FieldService {
-    
+
+
+
     @Autowired
     private FieldRepository fieldRepository;
 
@@ -31,5 +33,10 @@ public class FieldService {
     @Transactional
     public void deleteById(Integer id) {
         fieldRepository.deleteById(id);
+    }
+
+
+    public List<Field> findFieldsByResultId(int id) {
+        return fieldRepository.findFieldsByResultId(id);
     }
 }
