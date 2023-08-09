@@ -14,6 +14,8 @@ import java.util.Optional;
 @CrossOrigin
 public class ResultController {
 
+
+
     @Autowired
     private ResultService resultService;
 
@@ -36,5 +38,10 @@ public class ResultController {
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Integer id) {
         resultService.deleteById(id);
+    }
+
+    @PutMapping("/{id}")
+    public void update(@PathVariable Integer id,@RequestBody Result resultInfo) {
+        resultService.update(id, resultInfo);
     }
 }
