@@ -17,11 +17,13 @@ public class Field {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    private String fieldid;
+    private String type;
 
-    @OneToMany(mappedBy = "field", fetch = FetchType.LAZY)
+   /* @OneToMany(mappedBy = "field", fetch = FetchType.LAZY)
     //@JsonIgnore
     private List<FieldValue> fieldValueList;
-
+*/
     @ManyToOne
     private Result result;
 }

@@ -15,8 +15,10 @@ public class FieldValue {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String value;
-
+/*
     @ManyToOne
     @JsonIgnoreProperties({ "fieldValueList", "result"})
     private Field field;
+
+ */
 }
