@@ -1,5 +1,6 @@
 package com.example.stageinnov.service;
 
+import com.example.stageinnov.entity.Role;
 import com.example.stageinnov.repository.ProjetRepository;
 import com.example.stageinnov.entity.Projet;
 import jakarta.transaction.Transactional;
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 @Service
 public class ProjetService {
+
 
 
 
@@ -48,5 +50,8 @@ public class ProjetService {
     @Transactional
     public void deleteById(Integer id) {
         projetRepository.deleteById(id);
+    }
+    public List<Projet> findByUserRole(Role role) {
+        return projetRepository.findByUserRole(role);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.stageinnov.controller;
 
 import com.example.stageinnov.entity.Projet;
+import com.example.stageinnov.entity.Role;
 import com.example.stageinnov.service.ProjetService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class ProjetController {
     @GetMapping("/between/{dateStart}/{dateEnd}")
     public List<Projet> findByDateCreationBetween(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateStart, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateEnd) {
         return projetService.findByDateCreationBetween(dateStart, dateEnd);
+    }
+
+    @GetMapping("/role/{role}")
+    public List<Projet> findByUserRole(@PathVariable Role role) {
+        return projetService.findByUserRole(role);
     }
 
     @Autowired
