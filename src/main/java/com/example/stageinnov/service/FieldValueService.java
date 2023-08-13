@@ -13,6 +13,8 @@ import java.util.Optional;
 @Service
 public class FieldValueService {
 
+
+
     @Autowired
     private FieldValueRepository fieldValueRepository;
 
@@ -32,6 +34,9 @@ public class FieldValueService {
 
     public List<FieldValue> findAll() {
         return fieldValueRepository.findAll();
+    }
+    public List<FieldValue> findByFieldId(int id) {
+        return fieldValueRepository.findByFieldId(id);
     }
 
 
