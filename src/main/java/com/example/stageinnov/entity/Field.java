@@ -1,10 +1,11 @@
 package com.example.stageinnov.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-
 
 @Entity
 @Data
@@ -20,10 +21,13 @@ public class Field {
     private String fieldid;
     private String type;
 
-   @OneToMany(mappedBy = "field", fetch = FetchType.LAZY)
+
+    /** add again  **/
+    @OneToMany(mappedBy = "field", fetch = FetchType.LAZY)
     //@JsonIgnore
     private List<FieldValue> fieldValueList;
 
     @ManyToOne
+    @JsonIgnoreProperties({ "fieldList", "projetList"})
     private Result result;
 }

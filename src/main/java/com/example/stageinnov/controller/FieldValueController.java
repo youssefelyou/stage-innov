@@ -14,6 +14,7 @@ import java.util.Optional;
 @CrossOrigin
 public class FieldValueController {
 
+
     @Autowired
     private FieldValueService fieldValueService;
 
@@ -37,6 +38,12 @@ public class FieldValueController {
     public List<FieldValue> findAll() {
         return fieldValueService.findAll();
     }
+
+    @GetMapping("/fieldid/{id}")
+    public List<FieldValue> findByFieldId(@PathVariable int id) {
+        return fieldValueService.findByFieldId(id);
+    }
+
 
 
 
