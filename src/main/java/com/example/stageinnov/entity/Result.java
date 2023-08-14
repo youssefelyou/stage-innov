@@ -21,12 +21,8 @@ public class Result {
     private String file;
     private String description;
 
-    /*
-    @ManyToOne
-    private Projet projet;
-    */
 
-    @OneToMany
+    @OneToMany(mappedBy = "result", fetch = FetchType.LAZY)
     private List<Field> fieldList;
 
     @OneToMany(mappedBy = "result", fetch = FetchType.LAZY)
