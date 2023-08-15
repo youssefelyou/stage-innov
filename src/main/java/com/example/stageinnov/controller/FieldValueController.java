@@ -15,6 +15,8 @@ import java.util.Optional;
 public class FieldValueController {
 
 
+
+
     @Autowired
     private FieldValueService fieldValueService;
 
@@ -42,6 +44,11 @@ public class FieldValueController {
     @GetMapping("/fieldid/{id}")
     public List<FieldValue> findByFieldId(@PathVariable int id) {
         return fieldValueService.findByFieldId(id);
+    }
+
+    @PutMapping("/{id}")
+    public void update(@PathVariable Integer id,@RequestBody FieldValue fieldValueInfo) {
+        fieldValueService.update(id, fieldValueInfo);
     }
 
 
