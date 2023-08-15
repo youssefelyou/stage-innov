@@ -17,6 +17,8 @@ import java.util.Optional;
 @Service
 public class CompanyService {
 
+
+
     @Autowired
     private CompanyRepository companyRepository;
 
@@ -40,6 +42,10 @@ public class CompanyService {
     @Transactional
     public void deleteById(Integer id) {
         companyRepository.deleteById(id);
+    }
+
+    public Company findFirstByOrderByIdAsc() {
+        return companyRepository.findFirstByOrderByIdAsc();
     }
 
 
