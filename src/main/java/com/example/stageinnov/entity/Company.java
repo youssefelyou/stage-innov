@@ -20,10 +20,10 @@ public class Company {
     private String name;
     private String address;
     private String phone;
+    private String email;
     private String fax;
     private String webSite;
     private String logo;
-    private String valIds;
     private String valRc;
     private String valPatente;
     private String valIf;
