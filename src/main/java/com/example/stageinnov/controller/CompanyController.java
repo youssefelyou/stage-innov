@@ -14,6 +14,7 @@ import java.util.Optional;
 @CrossOrigin
 public class CompanyController {
 
+
     @Autowired
     private CompanyService companyService;
 
@@ -37,6 +38,12 @@ public class CompanyController {
     public void deleteById(@PathVariable Integer id) {
         companyService.deleteById(id);
     }
+
+    @GetMapping("/getfirst")
+    public Company findFirstByOrderByIdAsc() {
+        return companyService.findFirstByOrderByIdAsc();
+    }
+
 
 
 }
