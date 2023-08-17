@@ -38,11 +38,15 @@ public class AuthenticationService {
                 .tel(request.getTel())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(request.getRole()).build();
-        var savedUser = repository.save(user);
-        var jwtToken = jwtService.generateToken(user);
-        var refreshToken = jwtService.generateRefreshToken(user);
-        saveUserToken(savedUser, jwtToken);
-        return AuthenticationResponse.builder().accessToken(jwtToken).refreshToken(refreshToken).build();
+        if (repository.findByEmail(user.getEmail()).isPresent()) {
+            return AuthenticationResponse.builder().user("User with the provided email already exists.").build();
+        } else {
+            var savedUser = repository.save(user);
+            var jwtToken = jwtService.generateToken(user);
+            var refreshToken = jwtService.generateRefreshToken(user);
+            saveUserToken(savedUser, jwtToken);
+            return AuthenticationResponse.builder().accessToken(jwtToken).refreshToken(refreshToken).build();
+        }
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
@@ -68,7 +72,7 @@ public class AuthenticationService {
 
     private void saveUserToken(User user, String jwtToken) {
         var token = Token.builder().user(user).token(jwtToken).tokenType(TokenType.TEST).expired(false).revoked(false).build();
-        tokenRepository.save(token);
+       // tokenRepository.save(token);
     }
 
     private void revokeAllUserTokens(User user) {

@@ -17,7 +17,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public User  save(User user) {
-        return userRepository.save(user);
+        return null;
     }
 
     public Optional<User> findById(Integer id) {
