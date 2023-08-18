@@ -18,7 +18,6 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-//@Inheritance(strategy = InheritanceType.JOINED)
 public class User implements UserDetails {
 
     @Id
@@ -28,6 +27,7 @@ public class User implements UserDetails {
     private String password;
 
     private String tel;
+    @Column(unique=true)
     private String email;
     private String firstName;
     private String lastName;

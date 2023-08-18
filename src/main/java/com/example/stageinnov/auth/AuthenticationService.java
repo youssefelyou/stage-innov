@@ -38,16 +38,13 @@ public class AuthenticationService {
                 .tel(request.getTel())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(request.getRole()).build();
-        if (repository.findByEmail(user.getEmail()).isPresent()) {
-            return AuthenticationResponse.builder().user("User with the provided email already exists.").build();
-        } else {
             var savedUser = repository.save(user);
             var jwtToken = jwtService.generateToken(user);
             var refreshToken = jwtService.generateRefreshToken(user);
             saveUserToken(savedUser, jwtToken);
             return AuthenticationResponse.builder().accessToken(jwtToken).refreshToken(refreshToken).build();
         }
-    }
+
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         ObjectMapper objectMapper = new ObjectMapper();

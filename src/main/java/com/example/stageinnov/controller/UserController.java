@@ -17,9 +17,16 @@ import java.util.Optional;
 public class UserController {
 
 
+
+
     @Autowired
     private UserService userService;
 
+
+    @PutMapping("/{id}")
+    public void update(@PathVariable Integer id,@RequestBody User userInfo) {
+        userService.update(id, userInfo);
+    }
     @PostMapping("/save")
     public User save(@RequestBody User user) {
         return userService.save(user);
