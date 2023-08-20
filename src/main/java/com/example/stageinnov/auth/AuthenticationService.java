@@ -54,16 +54,12 @@ public class AuthenticationService {
         var refreshToken = jwtService.generateRefreshToken(user);
         revokeAllUserTokens(user);
         saveUserToken(user, jwtToken);
-        String jsonString = "";
-        try {
-            // Convert the object to a JSON string
-            jsonString = objectMapper.writeValueAsString(user);
-            System.out.println(jsonString);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+
+        // Convert the object to a JSON string
+        String jsonString = String.valueOf(user.getRole());
+        System.out.println(jsonString);
         return AuthenticationResponse.builder().accessToken(jwtToken)
-                .user(jsonString)
+                .role(jsonString)
                 .refreshToken(refreshToken).build();
     }
 

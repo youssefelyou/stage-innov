@@ -64,8 +64,8 @@ public class User implements UserDetails {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "{" + "\"id:\"" + id + ", \"username\":" + username + ", \"password\":" + password + ", \"email\":" + email + ", \"firstName\":" + firstName + ", \"lastName\":" + lastName + ", \"role\":" + role + "}";
-    }
+//    @Override
+//    public String toString() {
+//        return "{" + "\"id:\"" + id + ", \"username\":" + username + ", \"password\":" + password + ", \"email\":" + email + ", \"firstName\":" + firstName + ", \"lastName\":" + lastName + ", \"role\":" + role + "}";
+//    }
 }
