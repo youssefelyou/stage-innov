@@ -28,6 +28,16 @@ services:
        MYSQL_DATABASE: visumine
        MYSQL_PASSWORD: password
     container_name: mysqldb
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: mysqldb
+      MYSQL_ROOT_PASSWORD: password1
+    depends_on:
+      - mysqldb
     
 
 
