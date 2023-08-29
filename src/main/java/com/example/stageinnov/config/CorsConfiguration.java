@@ -16,7 +16,8 @@ public class CorsConfiguration {
                         .allowedHeaders("Access-Control-Allow-Origin","*")
                         .allowedOrigins(
 
-                  "http://localhost:3000","https://https://stage-front.vercel.app");
+                         "http://localhost:3000","https://stage-front.vercel.app/");
+
 
             }
         };
