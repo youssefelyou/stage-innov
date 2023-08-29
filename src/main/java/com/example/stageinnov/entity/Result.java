@@ -18,6 +18,8 @@ public class Result {
     private int id;
     private String name;
     private String type;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String file;
     private String description;
 

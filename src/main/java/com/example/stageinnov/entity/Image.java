@@ -18,6 +18,8 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String photo;
     private String description;
     private String Format;
