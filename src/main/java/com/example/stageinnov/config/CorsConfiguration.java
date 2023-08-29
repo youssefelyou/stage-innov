@@ -13,10 +13,10 @@ public class CorsConfiguration {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
-                        .allowedHeaders("*")
+                        .allowedHeaders("Access-Control-Allow-Origin","*")
                         .allowedOrigins(
 
-                "http://localhost:3000","https://https://stage-front.vercel.app//");
+                  "http://localhost:3000","https://https://stage-front.vercel.app");
 
             }
         };
